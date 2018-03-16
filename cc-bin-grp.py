@@ -3,6 +3,7 @@ import pandas as pd
 combos = pd.read_csv('unique-cc-bin-combos.csv')
 cc_bin_grp = pd.read_csv('cc-bin-grp.csv')
 
+final_list = []
 for i, combos_row in combos.iterrows():
 	combos_cc = combos_row['CC']
 	combos_bin = combos_row['Bin']
@@ -20,6 +21,9 @@ for i, combos_row in combos.iterrows():
 			
 	grps_str = ','.join(grps_list)
 	final_row = [combos_cc, combos_bin, grps_str]
-	print(final_row)
+	final_list.append(final_row)
+		
+df = pd.DataFrame(final_list, columns=['CC', 'Bin', 'Group No'])
+print(df)
 
 print("Done!")
