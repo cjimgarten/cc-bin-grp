@@ -26,4 +26,7 @@ for i, combos_row in combos.iterrows():
 df = pd.DataFrame(final_list, columns=['CC', 'Bin', 'Group No'])
 print(df)
 
+# write to csv file
+df.to_csv('final.csv')
+
 print("Done!")
